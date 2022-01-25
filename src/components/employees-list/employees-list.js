@@ -4,9 +4,11 @@ import './employees-list.css';
 
 const EmployeesList = ({data}) => {
     const elements = data.map(item => {
+        const {id, ...itemProps} = item;//вытаскиваем id
         return (
             //<EmployeesListItem name={item.name} salary={item.salary}/>//или так:
-            <EmployeesListItem {...item}/>
+            //<EmployeesListItem {...item}/>//до добавления id (key prop)
+            <EmployeesListItem key={id} {...itemProps}/>
         );
     });
     return (
