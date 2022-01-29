@@ -68,10 +68,14 @@ class App extends Component {
     togglePromotion = (id) => {
         console.log(`promotion this ${id}`);
     }
-    render() {   
+    render() {
+        const employeesTotal = this.state.data.length;
+        const employeesIncreased = this.state.data.filter(item => item.increase).length;
         return (
             <div className="app">
-                <AppInfo />
+                <AppInfo 
+                    employeesTotal={employeesTotal}
+                    employeesIncreased={employeesIncreased} />
     
                 <div className="search-panel">
                     <SearchPanel />
@@ -83,6 +87,7 @@ class App extends Component {
                     onDelete={this.deleteItem}
                     onToggleIncrease={this.toggleIncrease}
                     onTogglePromotion={this.togglePromotion} />
+
                 <EmployeesAddForm onAdd={this.addItem}/>
             </div>
         );
