@@ -77,7 +77,6 @@ class App extends Component {
         }));
     }*/
     toggleProp = (id, prop) => {
-        //console.log(`promotion this ${id}`);
         this.setState(({data}) => ({
             data: data.map(item => {
                 if (item.id === id) {
