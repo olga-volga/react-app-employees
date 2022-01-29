@@ -67,6 +67,14 @@ class App extends Component {
     }
     togglePromotion = (id) => {
         console.log(`promotion this ${id}`);
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, promotion: !item.promotion}
+                }
+                return item;
+            })
+        }));
     }
     render() {
         const employeesTotal = this.state.data.length;
