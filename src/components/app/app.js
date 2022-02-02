@@ -38,11 +38,17 @@ class App extends Component {
             id: this.maxId++
         }
         this.setState(({data}) => {
+            const newArr = data.slice();
+            return {
+                data: newArr.push(newItem)
+            }
+        })
+        /*this.setState(({data}) => {
             const newArr = [...data, newItem];
             return {
                 data: newArr
             }
-        })
+        })*/
     }
     /*toggleIncrease = (id) => {
         //this.setState(({data}) => {
